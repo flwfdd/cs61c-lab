@@ -1,3 +1,5 @@
 # sp23-lab
 
-* `2023-06-26` 完成lab00
+课程主页：[https://inst.eecs.berkeley.edu/~cs61c/sp23/](https://inst.eecs.berkeley.edu/~cs61c/sp23/)
+
+* `2023-06-26` 完成lab00 lab01

@@ -11,10 +11,10 @@ int* int_on_stack() {
 
 int* int_on_heap() {
   // TODO: allocate memory on the heap for an integer
-  ______ ptr_to_5 = ______;
+  int* ptr_to_5 = malloc(sizeof(int));
 
   // TODO: store the number 5 in memory you just allocated
-  ______ = 5;
+  *ptr_to_5 = 5;
 
   // Returns a pointer that points to the number 5
   return ptr_to_5;
