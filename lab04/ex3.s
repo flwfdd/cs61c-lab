@@ -32,6 +32,8 @@ ex3:
     # a1 contains the power to raise to
     # the return value should be the result of a0^a1
     #     where ^ is the exponent operator, not XOR
+    addi sp sp -4
+    sw ra 0(sp)
 
     # return 1 if a0 == 0
     beq a1 x0 ex3_zero_case
@@ -40,7 +42,11 @@ ex3:
     mv t0 a0      # save a0 in t0
     addi a1 a1 -1 # decrement a1
 
+    addi sp sp -4
+    sw t0 0(sp)
     jal ex3       # call ex3(a0, a1-1)
+    lw t0 0(sp)
+    addi sp sp 4
 
     mul a0 a0 t0  # multiply ex3(a0, a1-1) by t0
                   # (which contains the value of a0)
@@ -51,4 +57,7 @@ ex3_zero_case:
     li a0 1
 
 ex3_end:
+    lw ra 0(sp)
+    addi sp sp 4
+    
     ret
