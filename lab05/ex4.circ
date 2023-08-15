@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project source="3.8.0-61c.c58792e" version="1.0">
-  This file is intended to be loaded by Logisim-evolution v3.8.0-61c.c58792e(https://github.com/61c-teach/logisim-evolution).
+<project source="3.8.0-61c.fcfeffb" version="1.0">
+  This file is intended to be loaded by Logisim-evolution v3.8.0-61c.fcfeffb(https://github.com/61c-teach/logisim-evolution).
 
   <lib desc="#Wiring" name="0">
     <tool name="Splitter">
@@ -84,6 +84,11 @@
       <a name="locked" val="true"/>
       <a name="width" val="16"/>
     </comp>
+    <comp lib="0" loc="(250,160)" name="Splitter">
+      <a name="appear" val="center"/>
+      <a name="fanout" val="4"/>
+      <a name="incoming" val="4"/>
+    </comp>
     <comp lib="0" loc="(900,80)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
@@ -92,11 +97,58 @@
       <a name="output" val="true"/>
       <a name="width" val="16"/>
     </comp>
+    <comp lib="2" loc="(410,80)" name="Multiplexer">
+      <a name="width" val="16"/>
+    </comp>
+    <comp lib="2" loc="(540,80)" name="Multiplexer">
+      <a name="width" val="16"/>
+    </comp>
+    <comp lib="2" loc="(690,80)" name="Multiplexer">
+      <a name="width" val="16"/>
+    </comp>
+    <comp lib="2" loc="(810,80)" name="Multiplexer">
+      <a name="width" val="16"/>
+    </comp>
+    <comp loc="(360,90)" name="rot1"/>
+    <comp loc="(500,90)" name="rot2"/>
+    <comp loc="(640,90)" name="rot4"/>
+    <comp loc="(770,90)" name="rot8"/>
+    <wire from="(220,160)" to="(250,160)"/>
+    <wire from="(220,80)" to="(300,80)"/>
+    <wire from="(270,140)" to="(390,140)"/>
+    <wire from="(270,150)" to="(520,150)"/>
+    <wire from="(270,160)" to="(670,160)"/>
+    <wire from="(270,170)" to="(790,170)"/>
+    <wire from="(300,70)" to="(300,80)"/>
+    <wire from="(300,70)" to="(380,70)"/>
+    <wire from="(300,80)" to="(300,90)"/>
+    <wire from="(360,90)" to="(380,90)"/>
+    <wire from="(390,100)" to="(390,140)"/>
+    <wire from="(410,80)" to="(440,80)"/>
+    <wire from="(440,70)" to="(440,80)"/>
+    <wire from="(440,70)" to="(510,70)"/>
+    <wire from="(440,80)" to="(440,90)"/>
+    <wire from="(500,90)" to="(510,90)"/>
+    <wire from="(520,100)" to="(520,150)"/>
+    <wire from="(540,80)" to="(580,80)"/>
+    <wire from="(580,70)" to="(580,80)"/>
+    <wire from="(580,70)" to="(660,70)"/>
+    <wire from="(580,80)" to="(580,90)"/>
+    <wire from="(640,90)" to="(660,90)"/>
+    <wire from="(670,100)" to="(670,160)"/>
+    <wire from="(690,80)" to="(710,80)"/>
+    <wire from="(710,70)" to="(710,80)"/>
+    <wire from="(710,70)" to="(780,70)"/>
+    <wire from="(710,80)" to="(710,90)"/>
+    <wire from="(770,90)" to="(780,90)"/>
+    <wire from="(790,100)" to="(790,170)"/>
+    <wire from="(810,80)" to="(900,80)"/>
   </circuit>
   <circuit name="rot1">
     <a name="appearance" val="custom"/>
     <a name="circuit" val="rot1"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
+    <a name="simulationFrequency" val="1.0"/>
     <appear>
       <rect fill="none" height="40" stroke="#000000" stroke-width="2" width="40" x="60" y="50"/>
       <rect height="20" stroke="none" width="41" x="60" y="70"/>
@@ -113,17 +165,65 @@
       <a name="appearance" val="NewPins"/>
       <a name="width" val="16"/>
     </comp>
+    <comp lib="0" loc="(230,80)" name="Splitter">
+      <a name="appear" val="center"/>
+      <a name="bit10" val="1"/>
+      <a name="bit11" val="1"/>
+      <a name="bit12" val="1"/>
+      <a name="bit13" val="1"/>
+      <a name="bit14" val="1"/>
+      <a name="bit15" val="1"/>
+      <a name="bit2" val="1"/>
+      <a name="bit3" val="1"/>
+      <a name="bit4" val="1"/>
+      <a name="bit5" val="1"/>
+      <a name="bit6" val="1"/>
+      <a name="bit7" val="1"/>
+      <a name="bit8" val="1"/>
+      <a name="bit9" val="1"/>
+      <a name="incoming" val="16"/>
+    </comp>
+    <comp lib="0" loc="(470,80)" name="Splitter">
+      <a name="appear" val="center"/>
+      <a name="bit1" val="0"/>
+      <a name="bit10" val="0"/>
+      <a name="bit11" val="0"/>
+      <a name="bit12" val="0"/>
+      <a name="bit13" val="0"/>
+      <a name="bit14" val="0"/>
+      <a name="bit15" val="1"/>
+      <a name="bit2" val="0"/>
+      <a name="bit3" val="0"/>
+      <a name="bit4" val="0"/>
+      <a name="bit5" val="0"/>
+      <a name="bit6" val="0"/>
+      <a name="bit7" val="0"/>
+      <a name="bit8" val="0"/>
+      <a name="bit9" val="0"/>
+      <a name="facing" val="west"/>
+      <a name="incoming" val="16"/>
+    </comp>
     <comp lib="0" loc="(660,80)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="width" val="16"/>
     </comp>
+    <wire from="(170,80)" to="(230,80)"/>
+    <wire from="(250,70)" to="(320,70)"/>
+    <wire from="(250,80)" to="(360,80)"/>
+    <wire from="(320,100)" to="(450,100)"/>
+    <wire from="(320,70)" to="(320,100)"/>
+    <wire from="(360,70)" to="(360,80)"/>
+    <wire from="(360,70)" to="(450,70)"/>
+    <wire from="(450,80)" to="(450,100)"/>
+    <wire from="(470,80)" to="(660,80)"/>
   </circuit>
   <circuit name="rot2">
     <a name="appearance" val="custom"/>
     <a name="circuit" val="rot2"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
+    <a name="simulationFrequency" val="1.0"/>
     <appear>
       <rect fill="none" height="40" stroke="#000000" stroke-width="2" width="40" x="60" y="50"/>
       <rect height="20" stroke="none" width="41" x="60" y="70"/>
@@ -146,11 +246,17 @@
       <a name="output" val="true"/>
       <a name="width" val="16"/>
     </comp>
+    <comp loc="(330,80)" name="rot1"/>
+    <comp loc="(440,80)" name="rot1"/>
+    <wire from="(170,80)" to="(270,80)"/>
+    <wire from="(330,80)" to="(380,80)"/>
+    <wire from="(440,80)" to="(660,80)"/>
   </circuit>
   <circuit name="rot4">
     <a name="appearance" val="custom"/>
     <a name="circuit" val="rot4"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
+    <a name="simulationFrequency" val="1.0"/>
     <appear>
       <rect fill="none" height="40" stroke="#000000" stroke-width="2" width="40" x="60" y="50"/>
       <rect height="20" stroke="none" width="41" x="60" y="70"/>
@@ -173,11 +279,17 @@
       <a name="output" val="true"/>
       <a name="width" val="16"/>
     </comp>
+    <comp loc="(320,80)" name="rot2"/>
+    <comp loc="(440,80)" name="rot2"/>
+    <wire from="(170,80)" to="(260,80)"/>
+    <wire from="(320,80)" to="(380,80)"/>
+    <wire from="(440,80)" to="(660,80)"/>
   </circuit>
   <circuit name="rot8">
     <a name="appearance" val="custom"/>
     <a name="circuit" val="rot8"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
+    <a name="simulationFrequency" val="1.0"/>
     <appear>
       <rect fill="none" height="40" stroke="#000000" stroke-width="2" width="40" x="60" y="50"/>
       <rect height="20" stroke="none" width="41" x="60" y="70"/>
@@ -200,5 +312,10 @@
       <a name="output" val="true"/>
       <a name="width" val="16"/>
     </comp>
+    <comp loc="(360,80)" name="rot4"/>
+    <comp loc="(460,80)" name="rot4"/>
+    <wire from="(170,80)" to="(300,80)"/>
+    <wire from="(360,80)" to="(400,80)"/>
+    <wire from="(460,80)" to="(660,80)"/>
   </circuit>
 </project>
