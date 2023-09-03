@@ -54,7 +54,22 @@ long long int sum_simd(int vals[NUM_ELEMS]) {
     for(unsigned int w = 0; w < OUTER_ITERATIONS; w++) {
         /* YOUR CODE GOES HERE */
 
+        __m128i sum_vec=_mm_setzero_si128();
+        for(unsigned int i=3;i<NUM_ELEMS;i+=4) {
+            __m128i tmp=_mm_loadu_si128((__m128i *)(vals+i-3));
+            __m128i mask=_mm_cmpgt_epi32(tmp,_127);
+            tmp=_mm_and_si128(tmp,mask);
+            sum_vec=_mm_add_epi32(sum_vec,tmp);
+        }
+        int tmp_arr[4];
+        _mm_storeu_si128((__m128i *)tmp_arr,sum_vec);
+
         /* Hint: you'll need a tail case. */
+
+        result+=tmp_arr[0]+tmp_arr[1]+tmp_arr[2]+tmp_arr[3];
+        for(unsigned int i=NUM_ELEMS/4*4;i<NUM_ELEMS;i++) {
+            if(vals[i]>127)result+=vals[i];
+        }
     }
 
     /* DO NOT MODIFY ANYTHING BELOW THIS LINE (in this function) */
@@ -72,8 +87,37 @@ long long int sum_simd_unrolled(int vals[NUM_ELEMS]) {
     for(unsigned int w = 0; w < OUTER_ITERATIONS; w++) {
         /* YOUR CODE GOES HERE */
         /* Copy your sum_simd() implementation here, and unroll it */
+        __m128i sum_vec=_mm_setzero_si128(),tmp,mask;
+        for(unsigned int i=15;i<NUM_ELEMS;i+=16) {
+            tmp=_mm_loadu_si128((__m128i *)(vals+i-15));
+            mask=_mm_cmpgt_epi32(tmp,_127);
+            tmp=_mm_and_si128(tmp,mask);
+            sum_vec=_mm_add_epi32(sum_vec,tmp);
+
+            tmp=_mm_loadu_si128((__m128i *)(vals+i-11));
+            mask=_mm_cmpgt_epi32(tmp,_127);
+            tmp=_mm_and_si128(tmp,mask);
+            sum_vec=_mm_add_epi32(sum_vec,tmp);
+
+            tmp=_mm_loadu_si128((__m128i *)(vals+i-7));
+            mask=_mm_cmpgt_epi32(tmp,_127);
+            tmp=_mm_and_si128(tmp,mask);
+            sum_vec=_mm_add_epi32(sum_vec,tmp);
+
+            tmp=_mm_loadu_si128((__m128i *)(vals+i-3));
+            mask=_mm_cmpgt_epi32(tmp,_127);
+            tmp=_mm_and_si128(tmp,mask);
+            sum_vec=_mm_add_epi32(sum_vec,tmp);
+        }
+        int tmp_arr[4];
+        _mm_storeu_si128((__m128i *)tmp_arr,sum_vec);
 
         /* Hint: you'll need 1 or maybe 2 tail cases here. */
+
+        result+=tmp_arr[0]+tmp_arr[1]+tmp_arr[2]+tmp_arr[3];
+        for(unsigned int i=NUM_ELEMS/16*16;i<NUM_ELEMS;i++) {
+            if(vals[i]>127)result+=vals[i];
+        }
     }
 
     /* DO NOT MODIFY ANYTHING BELOW THIS LINE (in this function) */
